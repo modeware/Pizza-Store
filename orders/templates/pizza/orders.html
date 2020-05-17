@@ -1,0 +1,52 @@
+{% extends "pizza/layout.html" %}
+{% load static %}
+
+{% block script %}
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+{% endblock %}
+
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <p class="navbar-brand" href="#">The Pizza Store</p>
+    <p class="navbar-brand" href="#">{{ user.username }}</p>
+    <a href="{% url 'logout' %}">Logout</a>
+
+</nav>
+<div class="container-fluid">
+
+    <div class="row" style="margin-top: 5rem;">
+        <div class="col-sm-12" style="height: 100vh; overflow-y: scroll;">
+
+            {% for cat in category %}
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{cat.order_id }}  {{cat.user_id}} {{ cat.category}}--{{ cat.type}} {{cat.size}} {{cat.quantity}} {{ cat.toppings}} {{ cat.price}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+
+
+
+
+
+        </div>
+
+
+    </div>
+</div>
+
+{% endblock %}

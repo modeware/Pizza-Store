@@ -1,0 +1,29 @@
+#pizza-background{
+
+        background-image: url("pizza1jpg.jpg");
+        background-repeat:no-repeat ;
+        background-size: 100% 100vh;
+        color:white;
+    }
+
+#cart-background{
+        background-image: url("pizza1jpg.jpg");
+        background-repeat:no-repeat ;
+        background-size: 100% 100vh;
+        color:white;
+}
+
+.listofmenu{
+    background-repeat: no-repeat, repeat;
+  background-image: url("piiza1.jpg"), url("pizza1jpg.jpg");
+  background-blend-mode: lighten;
+  color: white ;
+}
+
+
+.userfloat{
+    float: right;
+    color: aqua;
+    margin-left: 600px;
+    text-transform: uppercase;
+}

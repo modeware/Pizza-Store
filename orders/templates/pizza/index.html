@@ -1,0 +1,143 @@
+{% extends "pizza/layout.html" %}
+{% load static %}
+
+{% block script %}
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+<script src="{% static 'script.js' %}"></script>
+
+{% endblock %}
+
+{% block body %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <p class="navbar-brand" href="#">The Pizza Store</p>
+                <label class="userfloat" href="#">{{ user.username }}</label>
+                <a class="userfloat"href="{% url 'logout' %}">Logout</a>
+
+    </nav>
+<div class="container-fluid">
+
+<div class="row" style="margin-top: 5rem;">
+<div class="col-sm-2" style="height: 100vh; overflow-y: scroll;">
+
+{% for cat in category %}
+<div class="row ">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body listofmenu">
+                <h5 class="card-title">{{cat.category}}</h5>
+                <a href="#" data-cat="{{cat.category}}" class="btn btn-primary see-menu">See Menu</a>
+            </div>
+        </div>
+    </div>
+    </div>
+
+{% endfor %}
+<div class="row ">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body listofmenu">
+                <h5 class="card-title">Toppings</h5>
+                <a id="get-toppings" href="#" data-cat="Toppings" class="btn btn-primary">See Menu</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="col-sm-4">
+    <div class="row">
+            <div class="card bg-light mb-3 w-100" style="height:100vh">
+                <div class="card-header listofmenu">LIST</div>
+                <div class="card-body" id="pizza-background">
+                    <h5 id="menu-title" class="card-title">Select A Category</h5>
+                    <div id="menu-details" class="card-text">
+                        
+                        <!-- <div id="menu_items" class="row"> -->
+                        <!-- <div id="item-name" class="col-sm-4"></div>
+                        <div id="small-item" class="col-sm-4"></div>
+                        <div id="large-item" class="col-sm-4"></div> -->
+                        <!-- </div> --> 
+
+                    
+                    </div>
+            
+                </div>
+            
+            </div>
+            
+
+
+
+    </div>
+
+
+    
+
+</div>
+
+
+<div class="col-lg-6">
+    <div class="row">
+        <div  class="card bg-light mb-3 w-100" style="height:100vh">
+            <div class="card-header listofmenu ">Your Cart</div>
+            <div   id="cart-background" class="card-body">
+                <h5 id="menu-title" class="card-title">Items</h5>
+                <div id="cart" class="card-text"></div>
+                <table id="current-list"></table>
+                    <span>Total</span><span id="total"></span>
+<!-- Button trigger modal -->
+<button type="button" id="pay_t" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Pay
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle" style="color: black;">Proceed to Pay</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div id="messagebox" class="modal-body" style="color:black;">
+                Are you sure you want to proceed?
+          
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Review</button>
+                <button id="pay" type="button" class="btn btn-primary">Pay</button>
+            </div>
+        </div>
+    </div>
+
+</div>            </div>
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+</div>
+
+
+</div>
+</div>
+
+</div>
+{% endblock %}
+
