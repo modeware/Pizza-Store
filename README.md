@@ -14,4 +14,4 @@ The files in the project are as follow:
 4. models.py file contains class representation of all the pizza category and additionally cart and orders representation for users.
 5. views.py contains different routes.
 
-Personal Touch: I have added an email feature, once the order is placed successfully and email will be sent to the user with which the account is registered with.
+Personal Touch: I have added an email feature, once the order is placed successfully an email will be sent to the user with which the account is registered with.
