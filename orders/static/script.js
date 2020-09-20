@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     var close = document.querySelector('.close')
     close.addEventListener('click', () => {
         var closebox = document.querySelector('#messagebox')
-        closebox.innerHTML = "Are you sure you want to proceed?"
-        location.reload();
+        closebox.innerHTML = "Are you sure you want to proceed?";;
+        location.reload();;
 
     
 })
